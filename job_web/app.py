@@ -15,13 +15,13 @@ def register_extensions(app):
 
 
 def register_blueprints(app):
-    from .handlers import front
-    app.register_blueprint(front)
+    from .handlers import front_handler
+    app.register_blueprint(front_handler)
 
 
 def register_apis(app):
-    from .apis import user
-    app.register_blueprint(user)
+    from .apis import user_api
+    app.register_blueprint(user_api)
 
 
 def create_app(config):

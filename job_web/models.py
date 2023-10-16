@@ -3,12 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 from sqlalchemy import event, DDL
+from sqlalchemy_serializer import SerializerMixin
 
 # 全局数据库访问对象
 db = SQLAlchemy()
 
 
-class Base(db.Model):
+class Base(db.Model, SerializerMixin):
     __abstract__ = True
 
     created_at = db.Column(db.DateTime, default=datetime.now)
@@ -52,6 +53,7 @@ class UserBase(Base, UserMixin):
 
 
 class User(UserBase):
+    serialize_rules = ('-_password',)
     __tablename__ = 'user'
 
     id = db.Column(db.BigInteger, primary_key=True)

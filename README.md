@@ -15,8 +15,8 @@ bootstrap: 5.3.2
 
 -------------------
 
-# 简单的招聘网站示例
-基于 Flask / Jinja2 / Bootstrap / MySQL 开发，仿照拉勾网的风格，实现了招聘网站的必需功能
+# 简单的Flask测试网站
+基于 Flask / Vue3 / Bootstrap / MySQL 开发
 
 ## 环境
 * Python 3
