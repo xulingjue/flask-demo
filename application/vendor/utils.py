@@ -1,13 +1,8 @@
 '''
-@Author: hua
-@Date: 2018-08-30 10:52:23
-@LastEditors: hua
-@LastEditTime: 2019-11-23 15:40:39
+author:hua
+date:2018.5.9 工具类，封装一些通用方法
 '''
-''' author:hua
-    date:2018.5.9
-    工具类，封装一些通用方法 
-'''
+import time
 
 
 class Utils:
@@ -16,6 +11,7 @@ class Utils:
     * @param list data
     * @return dict
     '''
+
     @staticmethod
     def db_l_to_d(data):
         data_list = []
@@ -29,6 +25,7 @@ class Utils:
     * @param object obj
     * @return dict
     '''
+
     @staticmethod
     def class_to_dict(obj):
         '''把对象(支持单个对象、list、set)转换成字典'''
@@ -46,3 +43,11 @@ class Utils:
             dict = {}
             dict.update(obj.__dict__)
             return dict
+
+    """ uuid,唯一id 
+        return string id
+    """
+
+    @staticmethod
+    def unique_id(prefix=''):
+        return prefix + hex(int(time.time()))[2:10] + hex(int(time.time() * 1000000) % 0x100000)[2:7]

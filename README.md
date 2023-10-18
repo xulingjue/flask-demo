@@ -12,6 +12,7 @@ bootstrap: 5.3.2
 - [ ] 增加一个表单提交示例
 - [ ] python定时任务
 - [ ] python爬虫
+- [ ] flask生产配置应该如何管理
 
 -------------------
 
@@ -31,9 +32,13 @@ $ pip3 install -r requirements.txt
 
 #### 2. 修改配置文件
 
-根据自己情况，修改 `job_web/config.py`
+根据自己情况，修改 `application/setting.cty`
 
 主要是 `SQLALCHEMY_DATABASE_URI` 数据库的链接
+
+```shell
+$ export FLASK_DEMO_APPLICATION_SETTINGS=/Users/xulingjue/PycharmProjects/flask-demo/application/settings.cfg
+```
 
 #### 3. 创建数据库
 

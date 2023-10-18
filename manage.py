@@ -1,6 +1,9 @@
-from job_web.app import create_app
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-app = create_app('development')
+from application.main import create_app
+
+app = create_app()
 
 if __name__ == '__main__':
     app.run()

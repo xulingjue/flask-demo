@@ -1,9 +1,6 @@
-# import json
-# from flask import jsonify
 from flask import Flask
 from flask_migrate import Migrate
-from job_web.config import configs
-from job_web.models import db
+from application.models import db
 
 app = Flask(__name__)
 
@@ -24,9 +21,8 @@ def register_apis(app):
     app.register_blueprint(user_api)
 
 
-def create_app(config):
-    app = Flask(__name__)
-    app.config.from_object(configs.get(config))
+def create_app():
+    app.config.from_envvar('FLASK_DEMO_APPLICATION_SETTINGS')
     register_extensions(app)
     register_blueprints(app)
     register_apis(app)
@@ -34,4 +30,5 @@ def create_app(config):
 
 
 if __name__ == '__main__':
+    create_app()
     app.run()
